@@ -628,6 +628,8 @@ def main():
         output.write("overviewer.util.injectMarkerScript('markersDB.js');\n")
         output.write("overviewer.util.injectMarkerScript('markers.js');\n")
         output.write("overviewer.util.injectMarkerScript('regions.js');\n")
+        if os.environ.get('INJECT_MARKERS_URL'):
+            output.write("overviewer.util.injectMarkerScript('"+os.environ.get('INJECT_MARKERS_URL')+"');\n")
         output.write("overviewer.collections.haveSigns=true;\n")
     logging.info("Done")
 
